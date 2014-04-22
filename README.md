@@ -58,4 +58,4 @@
 - **clean_sample.png** - вид пустого слота в нижней панели.
 
 ###  Me
-Remote (aka Efrim), /mc/
+Remote, /mc/
