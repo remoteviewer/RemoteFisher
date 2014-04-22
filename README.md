@@ -1,5 +1,7 @@
 ###### Рыболовный бот для Minecraft 1.7.2, версия 1.0
 
+afdf
+
 Запускать в AutoHotKey: http://www.autohotkey.com/
 
 ##### Используемые клавиши:
