@@ -26,7 +26,7 @@ global RodSlotY := 1033
 
 ;-----------------------------------
 
-TrayTip, Fisher, % "Open Minecraft, leave menu and inventories and then press K to start.", 20
+TrayTip, Remote Fisher, % "Open Minecraft, leave menu and inventories and then press K to start.", 20
 
 ;-----------------------------------
 ;---- Hotkeys ----------------------
@@ -40,7 +40,7 @@ TrayTip, Fisher, % "Open Minecraft, leave menu and inventories and then press K 
 	{
 		Send {PgUp}
 
-		MsgBox, 4, Fisher, Stop bot?
+		MsgBox, 4, Remote Fisher, Do you wish to stop the bot?
 
 		IfMsgBox Yes
 			ExitApp
@@ -235,7 +235,7 @@ EndJob()
 	{
 		WinClose, Minecraft 1.7.2
 	}
-	MsgBox, 0, Autofisher, No more fishing rods. Stopped.,60
+	MsgBox, 0, Remote Fisher, No more fishing rods. Stopped.,60
 	ExitApp
 	Return 0
 }
@@ -292,7 +292,7 @@ GUI:
 
 	Gui, Add, Button, xm section gButtonOK default, Submit
 
-	Gui, Show, AutoSize, Minecraft fishing bot
+	Gui, Show, AutoSize, Remote Fisher
 	WinWaitClose, ahk_id %GuiHWND%
 Return
 
