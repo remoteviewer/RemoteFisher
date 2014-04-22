@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Рыболовный бот для Minecraft 1.7.2, версия 1.0
 
 Запускать в AutoHotKey: http://www.autohotkey.com/
@@ -54,3 +55,9 @@
 
 
 (c) Remote (aka Efrim), /mc/, April 2014
+=======
+RemoteFisher
+============
+
+A fishing bot for Minecraft 1.7.2.
+>>>>>>> 0c33c9772db47f622df2d554233ba8ba8fa27816
