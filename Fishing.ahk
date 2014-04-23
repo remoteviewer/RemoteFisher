@@ -1,9 +1,15 @@
 ;-----------------------------------
 ;---- Defs -------------------------
 ;-----------------------------------
-; Nothing = 1 	;	Nothing - for fake commits
 
 #SingleInstance force
+
+global GUIscale := 2
+
+;	large	3
+;	normal	2
+;	small	1
+;	auto	0
 
 global CloseAfterFinish := 0
 global TotalRods := 1
@@ -17,13 +23,17 @@ global IsRodPixelAutodetected := 0
 
 global WindowX := 0
 global WindowY := 0
-global WindowWidth := 1000
-global WindowHeight := 800
+global WindowWidth := 600
+global WindowHeight := 400
 
-global OffsetX := 300
-global OffsetY := 200
-global RodSlotX := 712
-global RodSlotY := 1033
+global OffsetX := 100
+global OffsetY := 100
+global RodSlotX := 279
+global RodSlotY := 521
+
+global RodPixelVerticalOffset := 25 ; 25 for normal GUI
+global RodPixelHorizontalOffset := 3 ; 3 for normal GUI
+global PanelSlotSize := 40 ; 40 for normal GUI, 60 for large GUI
 
 ;-----------------------------------
 
@@ -152,8 +162,8 @@ FindRodPixel()
 
 	If FindRod(X, Y, 0, 0, 1920, 1080)
 	{
-		RodSlotX := X + 5
-		RodSlotY := Y + 37
+		RodSlotX := X + RodPixelHorizontalOffset
+		RodSlotY := Y + RodPixelVerticalOffset
 		IsRoadPixelAutodetected := 1
 		Return 1
 	}
@@ -169,7 +179,7 @@ FindAllRods()
 
 	if FindRod(X0, Y0, 0, 0, 1920, 1080) = 0
 		Return 0
-	if FindCleanItem(X, Y, X0, Y0, X0 + 60, Y0 + 60) = 0
+	if FindCleanItem(X, Y, X0, Y0, X0 + PanelSlotSize, Y0 + PanelSlotSize) = 0
 	{
 		Rods[1] := 1
 		TotalRods++
@@ -178,7 +188,7 @@ FindAllRods()
 
 	Loop 9
 	{
-		If (FindRod(X, Y, X0 + (i-1)*60, Y0, X0 + i*60, Y0+60) = 1 and FindCleanItem(X, Y, X0 + (i-1)*60, Y0, X0 + i*60, Y0+60) = 0)
+		If (FindRod(X, Y, X0 + (i-1)*PanelSlotSize, Y0, X0 + i*PanelSlotSize, Y0+PanelSlotSize) = 1 and FindCleanItem(X, Y, X0 + (i-1)*PanelSlotSize, Y0, X0 + i*PanelSlotSize, Y0+PanelSlotSize) = 0)
 		{
 			Rods[i] := i
 			TotalRods := i
@@ -194,7 +204,7 @@ IsRodCritical(RodSlot)
 {
 	global RodSlotX
 	global RodSlotY
-	PixelGetColor, Pcolor, RodSlotX + 60 * (RodSlot - 1), RodSlotY, Alt
+	PixelGetColor, Pcolor, RodSlotX + 40 * (RodSlot - 1), RodSlotY, Alt
 	If Pcolor = 0x003F3D
 		Return 1
 	Else
@@ -269,8 +279,8 @@ GUI:
 
 	Gui, Add, Text, section, Offset (h):
 	Gui, Add, Text,, Offset (v):
-	Gui, Add, Edit, ys Number vOffsetX, 300
-	Gui, Add, Edit, Number vOffsetY, 200
+	Gui, Add, Edit, ys Number vOffsetX, 100
+	Gui, Add, Edit, Number vOffsetY, 100
 
 	Gui, Add, Text, xm section, Rod pixel (h):
 	Gui, Add, Text,, Rod pixel (v):
@@ -281,8 +291,8 @@ GUI:
 	}
 	Else
 	{
-		Gui, Add, Edit, ys Number vRodSlotX, 712
-		Gui, Add, Edit, Number vRodSlotY, 1033
+		Gui, Add, Edit, ys Number vRodSlotX, 279
+		Gui, Add, Edit, Number vRodSlotY, 521
 	}
 
 	;Gui, Add, Text, xm section, Rods:			; Obsolete
@@ -316,3 +326,5 @@ WinActivate, Minecraft 1.7.2
 Send {Esc}
 FindRodPixel()
 Return
+
+; Nothing = 1 	;	Nothing - for fake commits; this means completely nothing, disregard this line.

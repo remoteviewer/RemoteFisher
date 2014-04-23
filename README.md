@@ -1,3 +1,5 @@
+To everyone: if you have found this occasionaly, you're definitely should not be here.
+
 # Remote Fisher
 Рыболовный бот для Minecraft 1.7.2.
 
