@@ -38,7 +38,7 @@ To everyone: if you have found this occasionaly, you're definitely should not be
 
 7. Если хотите приостановить работу скрипта, нажмите *'PageUp'*, продолжить можно клавишей *'PageDown'*. Выключить скрипт можно клавишей *'k'*, при этом выскочит подтверждающее окно.
 
-## Подробно об окне настроек скрипта:
+### Подробно об окне настроек скрипта:
 
 - Кнопка **"Try detect"** пытается обнаружить пиксель критического состояния удочки. Перед нажатием нужно положить все имеющиеся удочки в их слоты (или хотя бы одну удочку в самый левый из тех слотов, что будут использованы для удочек).
 Эта кнопка переходит в окно майнкрафта, нажимает *'Esc'* (чтобы выйти из меню игры) и ищет картинку удочки. К полученным координатам она применяет смещение и записывает полученные координаты в память.
@@ -59,5 +59,12 @@ To everyone: if you have found this occasionaly, you're definitely should not be
 - **rod_sample.png** - вид удочки в нижней панели с отсечкой на уровне полоски состояния. Черные пиксели прозрачны для алгоритмов скрипта. Черными пикселями закрыт силуэт самой удочки, чтобы не влияла анимация энчанта.
 - **clean_sample.png** - вид пустого слота в нижней панели.
 
+### To Do
+- Implement technical logs to achieve better developer feedback
+- Review GUI for better user feedback
+- Rewrite rod detection
+- Optimize the whole code, to be honest
+
 ###  Me
 Remote, /mc/
+Now, by the april 2014, I am some sort of busy, so many
